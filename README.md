@@ -22,14 +22,14 @@ First, I imported the dataset into a Pandas DataFrame
 car_data = pd.read_csv('./cars_raw.csv')
 ```
 
-Because the data is not organized by state, I used a technique I learned on another project to find the average value of every column by state.
+Because the data is not organized by state, I used a technique I learned on another project about analyzing stock data to find the average value of every column by state.
 ```python
 parsed_data = car_data.groupby(['State']).mean()
 ```
 
 By finding the lowest or highest value in a column and viewing its index (a state), I was able to answer the last two questions. However, this does not help with the first question. After all, I am trying to analyze the general trends. Therefore, a graph would work better.
 <br><br>
-I used [this](https://medium.com/geekculture/create-a-choropleth-map-of-state-unemployment-rates-with-plotly-1354050e0cfd) medium article that discussed plotting median incomes across states using ```plotly```. This proved to be the perfect library for plotting information about states. But before I could use the method discussed in the article, I needed to move the states back into a column.
+After a while of researching and trying different libraries, I found [this](https://medium.com/geekculture/create-a-choropleth-map-of-state-unemployment-rates-with-plotly-1354050e0cfd) medium article that discussed plotting median incomes across states using ```plotly```. This proved to be the perfect library for plotting information about states. But before I could use the method discussed in the article, I needed to move the states back into a column.
 ```python
 parsed_data.reset_index(inplace=True)
 ```
@@ -52,7 +52,7 @@ for col in COLUMNS_TO_SHOW:
 ```
 
 However, this gave an error because 'Price' was not a column. It had been removed when finding the average because it was not actually a number, it was a string. I then added code to transform it into a valid integer using [this](https://stackoverflow.com/questions/15891038/change-column-type-in-pandas)
-Stackoverflow answer.
+Stackoverflow answer about transforming the type of a DataFrame column.
 ```python
 car_data['Price'] = car_data['Price'].map(lambda x: x[1:].replace(',', ''))
 car_data['Price'] = pd.to_numeric(car_data['Price'], errors='coerce')

@@ -10,7 +10,10 @@ Specifically, I wanted to answer the following questions:
 * Which state sells the newest cars?
 * Which state has the highest mileage?
 
-[The Results](#the-results)
+[View on Kaggle](https://www.kaggle.com/code/spresto/acm-research-2022)
+
+[The Results](#the-results) <br>
+[Other Important Info](#other-info)
 
 # The Process
 
@@ -74,6 +77,9 @@ Required Libraries
 * pandas
 * plotly
 * nbformat
+
+Required Files
+* [cars_raw.csv](https://www.kaggle.com/datasets/chancev/carsforsale)
 
 Outside Help
 * https://medium.com/geekculture/create-a-choropleth-map-of-state-unemployment-rates-with-plotly-1354050e0cfd
